@@ -3,3 +3,44 @@ https://drive.google.com/drive/folders/1uJUebEogZBxa9S_uprhUuUFR3hM3x7xG?usp=sha
 https://www.binaryboxtuts.com/php-tutorials/codeigniter-3-simple-crud-step-by-step-tutorial/
 
 https://www.youtube.com/watch?v=I752ofYu7ag&list=PLillGF-RfqbaP_71rOyChhjeK1swokUIS
+
+======================================================== DATA TABLES ===========================================================================
+
+Link for resources: https://drive.google.com/drive/folders/16JQKMms_Z9v9QBdiU6PvZ0Q5HY-Ci74U?usp=sharing
+
+INCLUDE ON FOOTER
+
+    
+<link href="<?php echo base_url(); ?>assets/datatables/buttons.bootstrap4.min.css" rel="stylesheet">
+<script src="<?php echo base_url(); ?>assets/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/buttons.bootstrap4.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/jszip.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/pdfmake.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/vfs_fonts.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/buttons.html5.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/buttons.print.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/buttons.colVis.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+    var table = $('#mytable').DataTable({
+        // "dom": 'Blfrtip',
+        "dom":' <"search"f><"top"l>rt<"bottom"ip><"clear">',
+        "bLengthChange": false, //used to hide the property 
+        order: [[1, 'asc']],
+        "lengthMenu": [
+        [50, 100, 1000, -1],
+        [50, 100, 1000, "All"]
+        ],
+        "initComplete": function() {
+        $("#mytable").show();
+        },
+        "pageLength": 10
+        });
+        table.buttons().container().appendTo('#reminders_wrapper .col-md-6:eq(0)');
+
+    });
+</script>
