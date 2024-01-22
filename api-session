@@ -1,0 +1,32 @@
+public function ControllerFucntionName(){
+  $result = $this->name_model->get_model_function();
+  echo json_encode($result);
+}
+
+
+<div id="result"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        // Fetch data on page load
+        fetchData();
+
+        function fetchData() {
+            $.ajax({
+                url: "<?php echo base_url('ajaxcontroller/get_data'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#data-container').html(JSON.stringify(data));
+                },
+                error: function() {
+                    alert('Error fetching data');
+                }
+            });
+        }
+        // setInterval(fetchData, 5000); // Update every 5 seconds
+    });
+</script>
