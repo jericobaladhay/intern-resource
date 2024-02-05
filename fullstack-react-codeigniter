@@ -1,0 +1,104 @@
+                                                                                                Codeigniter
+==================================================================================================================================================================================================
+Step 1. CodeIgniter 3 in htdocs
+==================================================================================================================================================================================================
+Step 2. Create a Controller name (any name) in controllers folder
+==================================================================================================================================================================================================
+Step 3. Paste this in the controller
+<?php
+  defined('BASEPATH') OR exit('No direct script access allowed');
+    class MainController extends CI_Controller {
+       public function index() {
+          $this->load->view('index');
+       }
+       // Add API endpoints as needed
+}
+
+==================================================================================================================================================================================================
+
+Step 4. In the views folder, create index.php
+Paste:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <title>Your SPA</title>
+</head>
+<body>
+   <div id="root"></div>
+   <script src="<?= base_url('path/to/your/react/app/build/static/js/main.js') ?>"></script>
+</body>
+</html>
+
+==================================================================================================================================================================================================
+Step 5. Routes:
+
+$route['default_controller'] = 'your-controller-name';
+$route['(:any)'] = 'your-controller-name/index/$1';
+
+
+==================================================================================================================================================================================================
+
+                                                                                                        React
+
+Step 1. Open terminal, install: 
+npx create-react-app my-ci-react
+cd my-react-app
+npm run build
+
+==================================================================================================================================================================================================
+
+Step 2. Open App.js in react project
+
+Paste:
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
+
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+
+const App = () => {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<Home />} />
+      </Routes>
+
+      </div>
+    </Router>
+  );
+};
+
+export default App;
+
+==================================================================================================================================================================================================
+
+Create a folder 'components' in the 'src' folder => src/components
+Create files:
+1. Home.js
+2. About.js
+3. Contact.js
