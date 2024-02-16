@@ -102,3 +102,19 @@ Create files:
 1. Home.js
 2. About.js
 3. Contact.js
+
+
+======================================================= Directory Link =========================================================================
+
+
+    public function getUploadedFile($filename) {
+        $path = './assets/uploads/' . $filename;
+
+        if (file_exists($path)) {
+            header('Content-Type: ' . mime_content_type($path));
+            header('Content-Length: ' . filesize($path));
+            readfile($path);
+        } else {
+            echo 'File not found.';
+        }
+    }
