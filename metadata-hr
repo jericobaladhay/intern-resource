@@ -1,0 +1,17 @@
+Position ID:
+Year Hired:
+Serial ID:
+=================================
+Lastname:
+Firstname:
+Middlename:
+Extension name:
+Suffix:
+=================================
+Designation: (Maintenance Personnel, IT Technician, etc.) Provide sample/dummy data
+Department: (MIS, RPQA, etc.) Provide sample/dummy data 
+Status: (Probationary, Part-time, Full-time)
+Date Hired: 
+Government Type: (SSS, PAG-IBIG, etc.)
+Government No:
+Active / Inactive: 1 / 0 => 1 for active, 0 for inactive
